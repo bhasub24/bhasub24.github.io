@@ -3,6 +3,7 @@ title: "Projects"
 layout: single
 permalink: /projects/
 author_profile: true
+author: bhasub24
 ---
 
 ## 🧠 DeepTensor  

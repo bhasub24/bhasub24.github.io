@@ -3,6 +3,7 @@ title: "Concepts"
 layout: single
 permalink: /concepts/
 author_profile: true
+author: bhasub24
 ---
 
 ### Self-Supervised Denoising  
