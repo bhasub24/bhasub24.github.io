@@ -1,18 +1,12 @@
 ---
-layout: page
-title: Concepts & Notes
+title: "Concepts"
+layout: single
+permalink: /concepts/
+author_profile: true
 ---
 
-## 📘 Self-Supervised Learning
-Explaining the motivation behind Noise2Noise, DIP, and test-time adaptation techniques.  
-*(Add links or markdown notes here)*
+### Self-Supervised Denoising  
+Notes on DIP, Noise2Noise, Noise2Void, etc.
 
-## 🎯 Bayesian Inference in Deep Learning
-Understanding priors, posterior, MAP, and variational inference.
-
-## 🧠 Information Theory
-Key ideas from Cover & Thomas — entropy, mutual information, coding theory.
-
----
-
-I'll add more thoughts here regularly.
+### Bayesian Deep Learning  
+MAP, variational inference, priors.
