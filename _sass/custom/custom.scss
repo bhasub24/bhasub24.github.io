@@ -1,0 +1,33 @@
+
+.sidebar {
+  opacity: 1 !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+.sidebar:hover {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+html {
+  font-size: initial !important;
+}
+
+// .masthead {
+//   position: sticky;
+//   opacity: 1 !important;
+//   top: 0;
+//   z-index: 1000;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* optional subtle shadow */
+// }
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #eeeeee !important;
+  opacity: 1 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: none !important;
+}
