@@ -2,7 +2,7 @@
 title: "Self Supervised Denoising"
 excerpt: "Understand computer vision literature on self supervised denoising"
 layout: single
-author_profile: true
+author_profile: false
 read_time: true
 image: 
 permalink: /blog/ssl/
