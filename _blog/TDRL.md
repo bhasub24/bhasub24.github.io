@@ -38,9 +38,7 @@ To illustrate this link, we’ll walk through a classic Pavlovian conditioning e
 ## What is Pavlovian Conditioning?
 A Pavlovian conditioning experiment, pioneered by Ivan Pavlov, demonstrates how a neutral stimulus (like a bell) can trigger a learned, reflexive response (like salivation) by being repeatedly paired with a naturally rewarding stimulus (like food).
 
-Initially, food causes salivation (unconditioned stimulus → unconditioned response). Over time, the bell (neutral stimulus) is paired with the food. Eventually, the bell alone causes salivation, this becomes a conditioned response triggered by a conditioned stimulus.
-
-In neuroscience, a similar paradigm is used: a cue (e.g., a tone) is paired with a reward (e.g., juice) to study learning and reward signaling in the brain.
+Initially, food causes salivation (unconditioned stimulus → unconditioned response). Over time, the bell is paired with the food. Eventually, the bell alone causes salivation, this becomes a conditioned response triggered by a conditioned stimulus.
 
 ## setup
 A monkey hears a cue (e.g., a tone), then gets a juice reward.
