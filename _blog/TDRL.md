@@ -47,172 +47,77 @@ A monkey hears a cue (e.g., a tone), then gets a juice reward.
 
 ## Phase 1: Before learning
 
-At the beginning, the cue is meaningless (it does not predict anything yet). The reward is unexpected, so the prediction error is large and positive.
+Before learning, the cue has no predictive meaning. The reward is unexpected.
 
-At reward time, the TD error is:
+At reward time, TD error is:
 
 $$
 \delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)
 $$
 
-Since the agent has not learned any predictions yet, we can assume:
+Since values are not yet learned:
 
 $$
-V(s_t) \approx 0
-\qquad \text{and} \qquad
-V(s_{t+1}) \approx 0
+V(s_t)\approx 0, \quad V(s_{t+1})\approx 0
 $$
 
-So at reward delivery:
+So:
 
 $$
 \delta_{\text{reward}} \approx r_t > 0
 $$
 
 ### Neural response
-Dopamine neurons show a **burst of firing at the time of reward**, because the reward is better than expected (positive prediction error).
+Dopamine neurons show a **burst at reward delivery** (positive prediction error).
 
 ---
 
 ## Phase 2: After learning
 
-After repeated pairings, the cue becomes predictive: the agent learns that reward follows the cue. This means the value of the cue increases:
+After learning, the cue predicts reward, so the cue value increases:
 
 $$
-V(\text{cue}) \gg 0
+V(\text{cue}) > 0
 $$
 
-Now the most important subtle point is the following:
-
-At the time the cue is presented, **the reward has not happened yet**, so the immediate reward is:
+At cue time the reward has not occurred yet, so:
 
 $$
 r_{\text{cue}} = 0
 $$
 
-But the TD error can still be positive at cue time because TD learning is **bootstrapped**:
+But the TD error becomes positive because the next state predicts reward:
 
 $$
-\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)
+\delta_{\text{cue}} = 0 + \gamma V(\text{reward}) - V(\text{cue}) > 0
 $$
 
-At cue time:
-- $$r_{\text{cue}} = 0$$
-- the next state is the reward-delivery state, so $$V(s_{t+1}) = V(\text{reward})$$ is high
-- initially $$V(\text{cue})$$ is lower than it should be (underestimation during learning)
-
-So:
+At reward time, the reward is fully predicted, so prediction error is near zero:
 
 $$
-\delta_{\text{cue}} = 0 + \gamma V(\text{reward}) - V(\text{cue})
-$$
-
-A common intuition mistake is to assume $$r=1$$ at cue time, but that is incorrect. The cue is only a predictor; it does not deliver reward. The prediction error is positive **because the next state's value is high**, not because reward is received.
-
-If (for intuition) we take:
-
-$$
-V(\text{reward}) = 1, \quad V(\text{cue}) \approx 0
-$$
-
-then
-
-$$
-\delta_{\text{cue}} = \gamma \cdot 1 - 0 = \gamma
-$$
-
-and if $$\gamma = 1$$:
-
-$$
-\delta_{\text{cue}} = 1
-$$
-
-### What happens at reward time after learning?
-
-At reward time, the reward is now expected. Also, after the reward is delivered, the episode effectively ends (or there is no further reward), so:
-
-$$
-V(\text{after reward}) \approx 0
-$$
-
-Thus, at reward delivery:
-
-$$
-\delta_{\text{reward}} = r_t + \gamma V(\text{after reward}) - V(\text{reward})
-$$
-
-With $$r_t = 1$$, $$V(\text{after reward}) \approx 0$$, and $$V(\text{reward}) \approx 1$$:
-
-$$
-\delta_{\text{reward}} = 1 + 0 - 1 = 0
+\delta_{\text{reward}} \approx 0
 $$
 
 ### Neural response
-After learning:
-- Dopamine neurons show a **burst at cue onset** (because prediction is updated there)
-- Dopamine neurons show **little to no change at reward delivery** (because reward is fully predicted)
-
-This is what is meant by the firing **“shifting from reward to cue.”**
+Dopamine firing **shifts from reward time to cue time**:
+- burst at cue onset
+- little/no change at reward delivery
 
 ---
 
 ## Phase 3: Reward omission
 
-Now suppose the cue occurs but the reward is omitted.
-
-Since the cue predicts reward, the cue still has high value:
-
-$$
-V(\text{cue}) \gg 0
-$$
-
-But at the expected reward time:
+If the cue occurs but reward is omitted:
 
 $$
 r_t = 0
 $$
 
-and again:
+Then:
 
 $$
-V(\text{after reward}) \approx 0
-$$
-
-So the TD error becomes:
-
-$$
-\delta_{\text{reward}} = 0 + \gamma V(\text{after reward}) - V(\text{reward}) < 0
-$$
-
-or equivalently, thinking one step earlier:
-
-$$
-\delta = 0 - V(\text{cue}) < 0
+\delta_{\text{reward}} < 0
 $$
 
 ### Neural response
-Dopamine neurons show a **dip in firing at the time the reward was expected**, representing a **negative prediction error** ("worse than expected").
-
----
-
-## Why does firing shift from reward to cue?
-
-After learning, the cue becomes predictive, meaning:
-
-$$
-V(\text{cue}) \approx \gamma V(\text{reward})
-$$
-
-So the TD error becomes concentrated at cue onset:
-
-$$
-\delta_{\text{cue}} = 0 + \gamma V(\text{reward}) - V(\text{cue})
-$$
-
-while at reward time:
-
-$$
-\delta_{\text{reward}} = 1 + \gamma V(\text{after reward}) - V(\text{reward}) \approx 0
-$$
-
-So dopamine neurons fire earlier, at the cue, because that is when the brain updates reward expectation.
+Dopamine neurons show a **dip** at the time reward was expected (negative prediction error).
