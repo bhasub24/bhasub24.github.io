@@ -7,4 +7,6 @@ author: bhasub24
 
 (The site is still under construction)
 
-I'm a second year Master's student in Electrical and Computer Engineering at University of California, Davis. I am currently working as a researcher in computational imaging in Yang Research Laboratory under Professor Weijian Yang. My focus is on building self supervised denoising algorithms for functional imaging modality.
+Hi, I'm Bharath Subramanian. I’m a second-year M.S. student in Electrical and Computer Engineering at UC Davis. I currently work in the Computational Imaging Lab, advised by Prof. Weijian Yang, where I develop self-supervised and zero-shot denoising algorithms for functional microscopy (calcium and voltage imaging).
+
+Broadly, I’m interested in self-supervised learning, inverse problems, information theory, statistical learning theory, and reinforcement learning. Currently, I’m exploring how to transfer knowledge from simulation to real microscopy denoising, how synthetic data can improve self-supervised models, and how to achieve robust generalization under distribution shifts.
