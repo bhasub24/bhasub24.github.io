@@ -7,6 +7,7 @@ read_time: true
 image: 
 permalink: /blog/TD/
 math: true
+section: thoughts
 ---
 
 # Introduction

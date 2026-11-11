@@ -7,6 +7,7 @@ read_time: true
 image:
 permalink: /blog/noise2noise/
 math: true
+section: research
 ---
 
 # Learning-based denoising
